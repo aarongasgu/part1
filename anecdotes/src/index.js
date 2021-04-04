@@ -3,17 +3,35 @@ import ReactDOM from 'react-dom'
 
 const App = (props) => {
   const [selected, setSelected] = useState(0)
-
-  function aleatorio(minimo,maximo){
-    return Math.floor(Math.random() * ((maximo+1)-minimo)+minimo);
+  const [points, setPoints] = useState([0,0,0,0,0,0])
+  
+  function aleatorio(minimo, maximo) {
+    return Math.floor(Math.random() * ((maximo + 1) - minimo) + minimo);
   }
 
-  const handlerClick = () => setSelected(aleatorio(0,5))
+  const handlerClick = () => setSelected(aleatorio(0, 5))
+
+  const votar = () => {
+
+    const copy = [...points]
+    copy[selected] += 1
+    setPoints(copy)
+
+  }
+
+  const maxVoto = Math.max(...points)
+  console.log(masVotado)
+  var masVotado = points.indexOf(maxVoto)
 
   return (
     <div>
-      {props.anecdotes[selected]} <br/>
+      {props.anecdotes[selected]} <br />
       <button onClick={handlerClick}>siguiente anecdota</button>
+      <button onClick={votar}>Like</button>
+      <span>{points[selected]}</span>
+      <h1>Mas votado con {maxVoto}:</h1>
+      <p>{props.anecdotes[masVotado]}</p>
+
     </div>
   )
 }
