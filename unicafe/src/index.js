@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import ReactDOM from 'react-dom'
 
+const Statistics = ({title}) => <h1>{title}</h1>
+
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0)
@@ -26,7 +28,7 @@ const App = () => {
       <button onClick={comentario("good")}>good</button>
       <button onClick={comentario("neutral")}>neutral</button>
       <button onClick={comentario("bad")}>bad</button>
-      <h1>statics</h1>
+      <Statistics title="Statistics"/>
       good: {good} <br/>
       neutral: {neutral} <br/> 
       bad: {bad} <br/> 
