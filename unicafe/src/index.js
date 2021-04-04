@@ -16,7 +16,9 @@ const App = () => {
       setBad(bad + 1)
     }
   }
-  
+
+  let total = (good + neutral + bad)
+  console.log(total)
 
   return (
     <div>
@@ -27,7 +29,10 @@ const App = () => {
       <h1>statics</h1>
       good: {good} <br/>
       neutral: {neutral} <br/> 
-      bad: {bad}
+      bad: {bad} <br/> 
+      total: {total} <br/> 
+      promedio: {total / 3} <br/> 
+      positivos: {good * 100 / total + "%"}
     </div>
   )
 }
